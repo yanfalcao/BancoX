@@ -1,0 +1,9 @@
+package com.yanfalcao.bancox.ui.theme
+
+import androidx.compose.ui.graphics.Color
+
+val GovernorBay = Color(0xFF3629B7)
+val White = Color(0xFFFFFFFF)
+val RadicalRed = Color(0xFFFF4267)
+val MineShaft = Color(0xFF343434)
+val DustyGray = Color(0xFF989898)
