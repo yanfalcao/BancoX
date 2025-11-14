@@ -12,6 +12,7 @@ import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
     primary = GovernorBay,
+    onPrimary = White,
     background = MineShaft,
     onBackground = White,
     error = RadicalRed,
@@ -20,6 +21,7 @@ private val DarkColorScheme = darkColorScheme(
 
 private val LightColorScheme = lightColorScheme(
     primary = GovernorBay,
+    onPrimary = White,
     background = White,
     onBackground = MineShaft,
     error = RadicalRed,
