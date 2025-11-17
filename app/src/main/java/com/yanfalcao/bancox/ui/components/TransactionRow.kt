@@ -34,7 +34,7 @@ fun TransactionRow(
     transactionValue: Double,
     icon: Painter,
     iconBackgroundColor: Color,
-    modifier: Modifier
+    modifier: Modifier = Modifier
 ) {
     val valueColor = if (transactionValue < 0) {
         MaterialTheme.colorScheme.error

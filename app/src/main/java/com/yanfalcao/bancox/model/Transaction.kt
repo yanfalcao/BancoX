@@ -1,7 +1,13 @@
 package com.yanfalcao.bancox.model
 
+import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
+import androidx.compose.ui.graphics.Color
 import com.yanfalcao.bancox.R
+import com.yanfalcao.bancox.ui.theme.GovernorBay
+import com.yanfalcao.bancox.ui.theme.RadicalRed
+import com.yanfalcao.bancox.ui.theme.Viking
+import com.yanfalcao.bancox.utils.Format
 import java.time.LocalDateTime
 import java.util.UUID
 
@@ -14,9 +20,27 @@ data class Transaction(
     val code: String,
     val from: String,
     @DrawableRes val icon: Int,
+    @ColorRes val iconBackgroundColor: Color,
 ) {
     val successFormatted: String
         get() = if (success) "Pago com sucesso" else "Falha no pagamento"
+
+    val paidAtFormatted: String
+        get() {
+            val date = Format.formatDayMonthYear(paidAt)
+
+            return when(date) {
+                Format.formatDayMonthYear(LocalDateTime.now()) -> {
+                    "Hoje"
+                }
+                Format.formatDayMonthYear(LocalDateTime.now().minusDays(1)) -> {
+                    "Ontem"
+                }
+                else -> {
+                    date
+                }
+            }
+        }
 }
 
 fun MockTransactions() = listOf(
@@ -24,28 +48,31 @@ fun MockTransactions() = listOf(
         name = "Supermercado",
         success = true,
         amount = -150.75,
-        paidAt = LocalDateTime.now().minusDays(1),
+        paidAt = LocalDateTime.now(),
         code = "TXN1234A6",
         from = "Lojas Americanas",
         icon = R.drawable.ic_receipt_list,
+        iconBackgroundColor = Viking,
     ),
     Transaction(
         name = "Conta de Energia",
         success = true,
         amount = -85.50,
-        paidAt = LocalDateTime.now().minusDays(3),
+        paidAt = LocalDateTime.now().minusDays(1),
         code = "TXN1243457",
         from = "Coelba",
         icon = R.drawable.ic_socket,
+        iconBackgroundColor = RadicalRed,
     ),
     Transaction(
         name = "Conta de Água",
         success = true,
         amount = -85.50,
-        paidAt = LocalDateTime.now().minusDays(4),
+        paidAt = LocalDateTime.now().minusDays(1),
         code = "TXN123957",
         from = "Embasa",
         icon = R.drawable.ic_water_drop,
+        iconBackgroundColor = GovernorBay,
     ),
     Transaction(
         name = "Salário",
@@ -55,6 +82,7 @@ fun MockTransactions() = listOf(
         code = "TXN723457",
         from = "Empresa S.A.",
         icon = R.drawable.ic_income,
+        iconBackgroundColor = RadicalRed,
     ),
     Transaction(
         name = "Stream",
@@ -64,6 +92,7 @@ fun MockTransactions() = listOf(
         code = "TXN123G58",
         from = "Netflix",
         icon = R.drawable.ic_receipt_list,
+        iconBackgroundColor = Viking,
     ),
     Transaction(
         name = "Restaurante",
@@ -73,5 +102,6 @@ fun MockTransactions() = listOf(
         code = "TXN12J459",
         from = "Outback",
         icon = R.drawable.ic_receipt_list,
+        iconBackgroundColor = Viking,
     ),
 )

@@ -17,6 +17,7 @@ private val DarkColorScheme = darkColorScheme(
     onBackground = White,
     error = RadicalRed,
     onSurface = DustyGray,
+    outline = Gallery
 )
 
 private val LightColorScheme = lightColorScheme(
@@ -26,6 +27,7 @@ private val LightColorScheme = lightColorScheme(
     onBackground = MineShaft,
     error = RadicalRed,
     onSurface = DustyGray,
+    outline = Gallery
 )
 
 @Composable
