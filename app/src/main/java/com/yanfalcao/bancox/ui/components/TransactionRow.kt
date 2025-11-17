@@ -63,8 +63,8 @@ fun TransactionRow(
         Column(
             modifier = Modifier
                 .padding(start = 16.dp)
-                .align(Alignment.CenterVertically),
-            verticalArrangement = Arrangement.SpaceBetween
+                .align(Alignment.Top),
+            verticalArrangement = Arrangement.SpaceBetween,
         ) {
             Text(title,
                 style = MaterialTheme.typography.bodyLarge.copy(
