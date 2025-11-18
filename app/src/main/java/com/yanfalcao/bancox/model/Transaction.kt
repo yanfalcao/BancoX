@@ -87,7 +87,7 @@ fun MockTransactions() = listOf(
     Transaction(
         name = "Stream",
         success = false,
-        amount = 12.99,
+        amount = -12.99,
         paidAt = LocalDateTime.now().minusDays(15),
         code = "TXN123G58",
         from = "Netflix",
