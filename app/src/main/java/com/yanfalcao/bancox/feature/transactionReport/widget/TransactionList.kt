@@ -25,7 +25,6 @@ import java.time.LocalDateTime
 fun TransactionList(
     modifier: Modifier = Modifier,
 ) {
-    val today = Format.formatDayMonthYear(LocalDateTime.now())
     var referenceDate = Format.formatDayMonthYear(LocalDateTime.now().plusDays(1))
     LazyColumn(
         modifier = modifier,
