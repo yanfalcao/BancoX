@@ -36,7 +36,7 @@ fun TransactionList(
             if(!referenceDate.equals(date)) {
                 Text(it.paidAtFormatted,
                     style = MaterialTheme.typography.labelLarge.copy(
-                        color = MaterialTheme.colorScheme.onBackground
+                        color = MaterialTheme.colorScheme.onSurface
                     ),
                     modifier = Modifier.padding(bottom = 8.dp)
                 )

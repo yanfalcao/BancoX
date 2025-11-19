@@ -6,6 +6,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
@@ -16,6 +20,7 @@ import com.yanfalcao.bancox.R
 import com.yanfalcao.bancox.feature.transactionReport.widget.BackgroundReport
 import com.yanfalcao.bancox.feature.transactionReport.widget.Header
 import com.yanfalcao.bancox.feature.transactionReport.widget.TransactionList
+import com.yanfalcao.bancox.ui.components.UiSettingsDialog
 import com.yanfalcao.bancox.ui.theme.CustomTheme
 
 @Composable
@@ -25,6 +30,8 @@ internal fun TransactionReportRoute() {
 
 @Composable
 fun TransactionReportScreen() {
+    var openSettingsDialog by remember { mutableStateOf(false) }
+
     Scaffold { padding ->
         BackgroundReport(
             Modifier.padding(padding)
@@ -34,8 +41,11 @@ fun TransactionReportScreen() {
                     .padding(top = 32.dp)
             ) {
                 Header(
-                    "Transações",
-                    Modifier.padding(horizontal = 24.dp)
+                    title = "Transações",
+                    modifier = Modifier.padding(horizontal = 24.dp),
+                    onClickSettings = {
+                        openSettingsDialog = true
+                    }
                 )
 
                 Image(
@@ -55,6 +65,15 @@ fun TransactionReportScreen() {
                 )
             }
         }
+    }
+
+    if (openSettingsDialog) {
+        UiSettingsDialog(
+            onDismissRequest = { openSettingsDialog = false },
+            onOptionSelected = { option ->
+
+            }
+        )
     }
 }
 
