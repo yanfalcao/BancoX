@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.yanfalcao.bancox.model.ColorThemeOptions
 import com.yanfalcao.bancox.ui.theme.CustomTheme
 
 @Composable
@@ -43,7 +44,7 @@ fun BackgroundReport(
 @Composable
 fun BackgroundReportPreview() {
     CustomTheme(
-        dynamicColor = false,
+        ColorThemeOptions.System,
     ) {
         BackgroundReport {
 

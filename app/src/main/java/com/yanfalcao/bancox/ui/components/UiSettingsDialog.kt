@@ -34,8 +34,9 @@ import com.yanfalcao.bancox.ui.theme.CustomTheme
 fun UiSettingsDialog(
     onDismissRequest: () -> Unit,
     onOptionSelected: (ColorThemeOptions) -> Unit,
+    defaultOptions: ColorThemeOptions = ColorThemeOptions.System
 ) {
-    var selectedOption by remember { mutableStateOf(ColorThemeOptions.System.title) }
+    var selectedOption by remember { mutableStateOf(defaultOptions.title) }
 
     Dialog(
         onDismissRequest = { onDismissRequest() }
@@ -64,7 +65,7 @@ fun UiSettingsDialog(
 
                 Spacer(Modifier.height(20.dp))
 
-                ColorThemeOptions.entries.forEach { option ->
+                ColorThemeOptions.getOptions().forEach { option ->
                     val isSelected = option.title == selectedOption
                     val radioModifier = if (isSelected) {
                         Modifier.border(
@@ -113,7 +114,7 @@ fun UiSettingsDialog(
 @Composable
 fun UiSettingsDialogPreview() {
     CustomTheme(
-        dynamicColor = false
+        ColorThemeOptions.System
     ) {
         UiSettingsDialog(
             onDismissRequest = {},

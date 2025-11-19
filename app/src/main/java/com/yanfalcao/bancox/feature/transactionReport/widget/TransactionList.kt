@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.yanfalcao.bancox.model.ColorThemeOptions
 import com.yanfalcao.bancox.model.MockTransactions
 import com.yanfalcao.bancox.ui.components.TransactionRow
 import com.yanfalcao.bancox.ui.theme.CustomTheme
@@ -67,7 +68,7 @@ fun TransactionList(
 @Composable
 fun TransactionListPreview() {
     CustomTheme(
-       dynamicColor = false
+        ColorThemeOptions.System
     ) {
         TransactionList(
             Modifier.background(MaterialTheme.colorScheme.background)

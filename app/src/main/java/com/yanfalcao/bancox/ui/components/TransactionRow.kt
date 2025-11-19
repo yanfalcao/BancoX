@@ -23,6 +23,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.yanfalcao.bancox.R
+import com.yanfalcao.bancox.model.ColorThemeOptions
 import com.yanfalcao.bancox.ui.theme.CustomTheme
 import com.yanfalcao.bancox.ui.theme.GovernorBay
 import com.yanfalcao.bancox.utils.Format
@@ -94,7 +95,7 @@ fun TransactionRow(
 @Composable
 fun preview() {
     CustomTheme(
-        dynamicColor = false,
+        ColorThemeOptions.System,
     ) {
         TransactionRow(
             title = "Conta de água",
