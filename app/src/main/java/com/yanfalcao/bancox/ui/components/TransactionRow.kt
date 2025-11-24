@@ -34,6 +34,7 @@ fun TransactionRow(
     subtitle: String,
     transactionValue: Double,
     icon: Painter,
+    iconColor: Color,
     iconBackgroundColor: Color,
     modifier: Modifier = Modifier
 ) {
@@ -55,7 +56,7 @@ fun TransactionRow(
             Icon(
                 painter = icon,
                 contentDescription = null,
-                tint = Color.White,
+                tint = iconColor,
                 modifier = Modifier
                     .height(16.dp),
             )
@@ -103,6 +104,7 @@ fun preview() {
             transactionValue = -280.00,
             icon = painterResource(R.drawable.ic_water_drop),
             iconBackgroundColor = GovernorBay,
+            iconColor = Color.White,
             modifier = Modifier
                 .fillMaxWidth()
                 .background(MaterialTheme.colorScheme.background)

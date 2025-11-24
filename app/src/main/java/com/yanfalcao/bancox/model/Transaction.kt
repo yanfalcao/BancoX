@@ -1,8 +1,6 @@
 package com.yanfalcao.bancox.model
 
-import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
-import androidx.compose.ui.graphics.Color
 import com.yanfalcao.bancox.R
 import com.yanfalcao.bancox.ui.theme.GovernorBay
 import com.yanfalcao.bancox.ui.theme.RadicalRed
@@ -19,8 +17,8 @@ data class Transaction(
     val paidAt: LocalDateTime,
     val code: String,
     val from: String,
+    val type: TransactionTypeEnum,
     @DrawableRes val icon: Int,
-    @ColorRes val iconBackgroundColor: Color,
 ) {
     val successFormatted: String
         get() = if (success) "Pago com sucesso" else "Falha no pagamento"
@@ -47,22 +45,22 @@ fun MockTransactions() = listOf(
     Transaction(
         name = "Supermercado",
         success = true,
-        amount = -150.75,
+        amount = -650.75,
         paidAt = LocalDateTime.now(),
         code = "TXN1234A6",
         from = "Lojas Americanas",
         icon = R.drawable.ic_receipt_list,
-        iconBackgroundColor = Viking,
+        type = TransactionTypeEnum.FOOD,
     ),
     Transaction(
         name = "Conta de Energia",
         success = true,
-        amount = -85.50,
+        amount = -235.50,
         paidAt = LocalDateTime.now().minusDays(1),
         code = "TXN1243457",
         from = "Coelba",
         icon = R.drawable.ic_socket,
-        iconBackgroundColor = RadicalRed,
+        type = TransactionTypeEnum.BILL,
     ),
     Transaction(
         name = "Conta de Água",
@@ -72,7 +70,7 @@ fun MockTransactions() = listOf(
         code = "TXN123957",
         from = "Embasa",
         icon = R.drawable.ic_water_drop,
-        iconBackgroundColor = GovernorBay,
+        type = TransactionTypeEnum.BILL,
     ),
     Transaction(
         name = "Salário",
@@ -82,7 +80,7 @@ fun MockTransactions() = listOf(
         code = "TXN723457",
         from = "Empresa S.A.",
         icon = R.drawable.ic_income,
-        iconBackgroundColor = RadicalRed,
+        type = TransactionTypeEnum.SALARY
     ),
     Transaction(
         name = "Stream",
@@ -92,7 +90,7 @@ fun MockTransactions() = listOf(
         code = "TXN123G58",
         from = "Netflix",
         icon = R.drawable.ic_receipt_list,
-        iconBackgroundColor = Viking,
+        type = TransactionTypeEnum.ENTERTAINMENT
     ),
     Transaction(
         name = "Restaurante",
@@ -102,6 +100,6 @@ fun MockTransactions() = listOf(
         code = "TXN12J459",
         from = "Outback",
         icon = R.drawable.ic_receipt_list,
-        iconBackgroundColor = Viking,
+        type = TransactionTypeEnum.FOOD
     ),
 )

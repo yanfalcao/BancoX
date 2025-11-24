@@ -17,6 +17,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.yanfalcao.bancox.model.ColorThemeOptions
 import com.yanfalcao.bancox.model.MockTransactions
+import com.yanfalcao.bancox.model.getColorIcon
+import com.yanfalcao.bancox.model.getColorIconBackground
 import com.yanfalcao.bancox.ui.components.TransactionRow
 import com.yanfalcao.bancox.ui.theme.CustomTheme
 import com.yanfalcao.bancox.utils.Format
@@ -50,7 +52,8 @@ fun TransactionList(
                 subtitle = it.successFormatted,
                 transactionValue = it.amount,
                 icon = painterResource(it.icon),
-                iconBackgroundColor = it.iconBackgroundColor,
+                iconColor = it.type.getColorIcon(),
+                iconBackgroundColor = it.type.getColorIconBackground(),
                 Modifier.padding(bottom = 16.dp)
             )
 

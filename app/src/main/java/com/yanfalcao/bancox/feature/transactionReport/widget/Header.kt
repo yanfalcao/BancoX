@@ -34,7 +34,7 @@ fun Header(
         Icon(
             imageVector = Icons.AutoMirrored.Filled.KeyboardArrowLeft,
             contentDescription = null,
-            tint = Color.White,
+            tint = MaterialTheme.colorScheme.onPrimary,
             modifier = Modifier.size(40.dp),
         )
         Text(
